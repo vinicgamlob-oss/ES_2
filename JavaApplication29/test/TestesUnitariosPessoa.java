@@ -44,9 +44,9 @@ public class TestesUnitariosPessoa {
      @Test
     public void verificarUmCpfInvalido (){
     
-        boolean RE = true ;
+        boolean RE = false ;
         
-        p.setCPF(2);
+        p.setCPF(200);
         
         boolean RO = p.validarCPF(p.getCPF());
         
@@ -77,13 +77,13 @@ public class TestesUnitariosPessoa {
     
     
     /**
-     * CT004: Verifica se o sistema reconhece um cadastro quando todos 
-     * os campos obrigatórios estão preenchidos incorretamente.
+     * CT004: Verifica se o sistema reconhece um cadastro quando um ou mais  
+     * campos obrigatórios estão preenchidos incorretamente.
      */
      @Test
     public void verificarCadastroInvalido(){
         
-       boolean RE = true ;
+       boolean RE =false ;
        
        p.setName("");
        p.setEmail("");
@@ -99,6 +99,54 @@ public class TestesUnitariosPessoa {
     
     
 }
+    
+    
+    /**
+     * Valida o cenário de sucesso (CT007) para o método atualizacao de dados.
+     * Certifica que o sistema retorna verdadeiro (true) quando um documento
+     * válido e previamente configurado na instância e processado.
+     */
+    @Test
+    public void validarUpdate(){
+    
+        String Novonome = "Maria";
+    int NovoCPF = 2;
+    int NovoNumeroCell = 13;
+    String NovoEmail = "Maria@email.com";
+    int NovaDataNasc = 14;
+    String NovaResidencia = " Rua Dom Sebastiao ";
+    
+    
+    
+    boolean RE = true;
+    boolean RO = p.atualizarCadastro(Novonome, NovoCPF, NovoNumeroCell, NovoEmail, NovaDataNasc, NovaResidencia);
+    
+    assertEquals(RE,RO);
+    }
+    
+    
+    /**
+     * Valida o cenário de falha (CT008) para o método de atualizacao de dados.
+     * Certifica que o sistema retorna verdadeiro (true) quando um documento
+     * inválido e previamente configurado na instância é processado.
+     */
+     @Test
+    public void invalidarUpdate(){
+    
+    String Novonome = "";
+    int NovoCPF = 200;
+    int NovoNumeroCell = 130;
+    String NovoEmail = "";
+    int NovaDataNasc = 140;
+    String NovaResidencia = "";
+    
+    
+    
+    boolean RE = false;
+    boolean RO = p.atualizarCadastro(Novonome, NovoCPF, NovoNumeroCell, NovoEmail, NovaDataNasc, NovaResidencia);
+    
+    assertEquals(RE,RO);
+    }
     
     
 }

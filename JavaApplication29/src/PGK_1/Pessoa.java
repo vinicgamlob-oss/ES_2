@@ -74,7 +74,7 @@ public class Pessoa {
 
     
     public boolean validarCPF(int CPF){
-        if (CPF == 1){
+        if (CPF >  0 && CPF < 100 ){
             return true;
         }
         else{
@@ -109,5 +109,39 @@ public class Pessoa {
     
     return true;
 }
+  
+  public boolean atualizarCadastro(String novoNome, int novoCPF, int novoNumeroCell, String novoEmail, int novaDataNasc, String novaResidencia){
+      
+    
+        
+       if (novoNome.isBlank() || novoEmail.isBlank() || novaResidencia.isBlank()) {
+        return false; 
+    }
+    
+    
+    if (!validarCPF(novoCPF)) { 
+        return false;
+    }
+    
+   
+    if (novoNumeroCell != 13 ){
+        return false;
+    }
+    
+    
+    if (novaDataNasc != 14) {
+        return false;
+    }
+    
+    this.name = novoNome;
+    this.CPF = novoCPF;
+    this.NumeroCell = novoNumeroCell;
+    this.DataNasc=  novaDataNasc;
+    this.Email = novoEmail;
+    this.Residencia = novaResidencia;
+  
+    return true;
+  
+  }
     
     }

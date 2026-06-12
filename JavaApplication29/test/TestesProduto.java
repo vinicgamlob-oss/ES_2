@@ -116,15 +116,15 @@ public class TestesProduto {
         sistema.cadastrarProduto(p2);
         
         boolean RE = false;
-        boolean RO = true; // Iniciamos assumindo que a operação é válida até que a duplicidade seja provada
+        boolean RO = true; 
         
-        // Simulação da regra de negócio: Se tentar atualizar o produto 'p' (101) com o código de barras do 'p2' (789222)
+       
         int sugeridoCoddigoBarra = 789222;
         int idAlvo = 101;
         
         for (Produto prod : Estoque.getInstance().getProdutos()) {
             if (prod.getCoddigoBarra() == sugeridoCoddigoBarra && prod.getCodigo() != idAlvo) {
-                RO = false; // Bloqueia (duplicidade detectada em outro ID)
+                RO = false; 
                 break;
             }
         }

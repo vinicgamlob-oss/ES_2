@@ -44,7 +44,6 @@ public class TesteFornecedor {
     @Test
     public void testarBloquearCadastroCnpjInvalido() {
         
-        // Usando um CNPJ curto (1000) para garantir o bloqueio na validação
         Fornecedor fornecedorInvalido = new Fornecedor(1000, "Fornecedor B");
         
         boolean RE = false;

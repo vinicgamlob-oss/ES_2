@@ -5,12 +5,19 @@ import PGK_1.Produto;
 import PGK_1.SistemaEstoque;
 import PGK_1.Estoque;
 
+/**
+ *
+ * @author Vinicius
+ */
 public class TestesProduto {
 
     SistemaEstoque sistema = new SistemaEstoque();
     Produto p = new Produto(101, 789111);
     Produto p2 = new Produto(102, 789222);
 
+    /**
+     *
+     */
     @Before
     public void limparCatalogo() {
         Estoque.getInstance().getProdutos().clear();

@@ -16,6 +16,9 @@ public class TestesUnitariosPessoa {
     
     Pessoa p = new Pessoa();
     
+    /**
+     *
+     */
     public TestesUnitariosPessoa() {
         
     }

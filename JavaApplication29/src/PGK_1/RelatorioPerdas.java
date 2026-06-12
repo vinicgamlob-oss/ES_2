@@ -1,6 +1,15 @@
 package PGK_1;
 
+/**
+ *
+ * @author Vinicius
+ */
 public class RelatorioPerdas extends Relatorio {
+
+    /**
+     *
+     * @return
+     */
     @Override
     protected String processarEFormatar() {
         StringBuilder sb = new StringBuilder("--- RELATÓRIO DE PERDAS ---\n");

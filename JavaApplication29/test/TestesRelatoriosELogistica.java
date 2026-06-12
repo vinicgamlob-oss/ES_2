@@ -8,11 +8,18 @@ import PGK_1.SistemaEstoque;
 import PGK_1.Estoque;
 import java.util.List;
 
+/**
+ *
+ * @author Vinicius
+ */
 public class TestesRelatoriosELogistica {
 
     SistemaEstoque sistema = new SistemaEstoque();
     Produto produtoBase = new Produto(10, 100);
 
+    /**
+     *
+     */
     @Before
     public void limparLotes() {
         Estoque.getInstance().getLotes().clear();

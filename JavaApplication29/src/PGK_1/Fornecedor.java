@@ -13,6 +13,11 @@ import java.util.List;
  */
 public class Fornecedor {
 
+    /**
+     *
+     * @param Cnpj
+     * @param nomef
+     */
     public Fornecedor(int Cnpj, String nomef) {
         this.Cnpj = Cnpj;
         this.nomef = nomef;
@@ -23,43 +28,87 @@ public class Fornecedor {
     private String empresa;
     private String endereco;
 
+    /**
+     *
+     * @return
+     */
     public String getEmpresa() {
         return empresa;
     }
 
+    /**
+     *
+     * @param empresa
+     */
     public void setEmpresa(String empresa) {
         this.empresa = empresa;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getEndereco() {
         return endereco;
     }
 
+    /**
+     *
+     * @param endereco
+     */
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getCnpj() {
         return Cnpj;
     }
 
+    /**
+     *
+     * @param Cnpj
+     */
     public void setCnpj(int Cnpj) {
         this.Cnpj = Cnpj;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNomef() {
         return nomef;
     }
 
+    /**
+     *
+     * @param nomef
+     */
     public void setNomef(String nomef) {
         this.nomef = nomef;
     }
     
     List<Fornecedor> lf = new ArrayList<>();
 
+    /**
+     *
+     * @param par
+     * @param fornecedor_A
+     * @param nome
+     */
     public Fornecedor(int par, String fornecedor_A, String nome) {
     }
 
+    /**
+     *
+     * @param lista
+     * @param novo
+     * @return
+     */
     public static boolean cadastrarFornecedor(List<Fornecedor> lista, Fornecedor novo) {
 
         if (novo.getCnpj() < 100000){
@@ -70,6 +119,12 @@ public class Fornecedor {
         return true;
     }
     
+    /**
+     *
+     * @param lista
+     * @param cnpjBuscado
+     * @return
+     */
     public static boolean buscarFornecedor(List<Fornecedor> lista, int cnpjBuscado) {
     
     for (Fornecedor f : lista) {
@@ -81,7 +136,15 @@ public class Fornecedor {
     return false; 
 }
     
-   public static boolean alterarFornecedor(List<Fornecedor> lista, int cnpjAlvo, String novoNomef, int novoCnpj) {
+    /**
+     *
+     * @param lista
+     * @param cnpjAlvo
+     * @param novoNomef
+     * @param novoCnpj
+     * @return
+     */
+    public static boolean alterarFornecedor(List<Fornecedor> lista, int cnpjAlvo, String novoNomef, int novoCnpj) {
     
     for (Fornecedor f : lista) {
         if (f.getCnpj() == novoCnpj && f.getCnpj() != cnpjAlvo) {

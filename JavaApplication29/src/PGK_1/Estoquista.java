@@ -4,6 +4,10 @@
  */
 package PGK_1;
 
+/**
+ *
+ * @author Vinicius
+ */
 public class Estoquista extends Funcionario {
     
 }

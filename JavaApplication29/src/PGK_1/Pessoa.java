@@ -17,60 +17,107 @@ public class Pessoa {
     private int DataNasc = 11;
     private String Residencia = " Rua Dom Bosco ";
     
-   
+    /**
+     *
+     * @return
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     *
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
-
+    /**
+     *
+     * @return
+     */
     public int getCPF() {
         return CPF;
     }
 
+    /**
+     *
+     * @param CPF
+     */
     public void setCPF(int CPF) {
         this.CPF = CPF;
     }
 
-
+    /**
+     *
+     * @return
+     */
     public int getNumeroCell() {
         return NumeroCell;
     }
 
+    /**
+     *
+     * @param NumeroCell
+     */
     public void setNumeroCell(int NumeroCell) {
         this.NumeroCell = NumeroCell;
     }
 
-
+    /**
+     *
+     * @return
+     */
     public String getEmail() {
         return Email;
     }
 
+    /**
+     *
+     * @param Email
+     */
     public void setEmail(String Email) {
         this.Email = Email;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getDataNasc() {
         return DataNasc;
     }
 
+    /**
+     *
+     * @param DataNasc
+     */
     public void setDataNasc(int DataNasc) {
         this.DataNasc = DataNasc;
     }
 
-
+    /**
+     *
+     * @return
+     */
     public String getResidencia() {
         return Residencia;
     }
 
+    /**
+     *
+     * @param Residencia
+     */
     public void setResidencia(String Residencia) {
         this.Residencia = Residencia;
     }
 
-    
+    /**
+     *
+     * @param CPF
+     * @return
+     */
     public boolean validarCPF(int CPF){
         if (CPF >  0 && CPF < 100 ){
             return true;
@@ -82,7 +129,11 @@ public class Pessoa {
         
     }
     
-  public boolean verificarCadastro() {
+    /**
+     *
+     * @return
+     */
+    public boolean verificarCadastro() {
     
     if (name.isBlank() || Email.isBlank() || Residencia.isBlank()) {
         return false; 
@@ -108,7 +159,17 @@ public class Pessoa {
     return true;
 }
   
-  public boolean atualizarCadastro(String novoNome, int novoCPF, int novoNumeroCell, String novoEmail, int novaDataNasc, String novaResidencia){
+    /**
+     *
+     * @param novoNome
+     * @param novoCPF
+     * @param novoNumeroCell
+     * @param novoEmail
+     * @param novaDataNasc
+     * @param novaResidencia
+     * @return
+     */
+    public boolean atualizarCadastro(String novoNome, int novoCPF, int novoNumeroCell, String novoEmail, int novaDataNasc, String novaResidencia){
       
     
         

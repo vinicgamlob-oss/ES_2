@@ -10,5 +10,10 @@ package PGK_1;
  * @author Vinicius
  */
 public abstract class FuncionarioFactory {
+
+    /**
+     *
+     * @return
+     */
     public abstract Funcionario criarFuncionario();
 }

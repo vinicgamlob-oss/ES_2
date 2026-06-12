@@ -3,6 +3,10 @@ package PGK_1;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author Vinicius
+ */
 public class Estoque {
     private static Estoque instancia;
     
@@ -15,6 +19,10 @@ public class Estoque {
 
     private Estoque() {}
 
+    /**
+     *
+     * @return
+     */
     public static synchronized Estoque getInstance() {
         if (instancia == null) {
             instancia = new Estoque();
@@ -22,15 +30,36 @@ public class Estoque {
         return instancia;
     }
     
+    /**
+     *
+     * @param lote
+     */
     public void adicionarLote(Lote lote) {
         this.lotes.add(lote); 
     }
 
-   
+    /**
+     *
+     * @return
+     */
     public List<Lote> getLotes() { return lotes; }
+
+    /**
+     *
+     * @return
+     */
     public List<Produto> getProdutos() { return produtos; }
+
+    /**
+     *
+     * @return
+     */
     public List<Fornecedor> getFornecedores() { return fornecedores; }
     
+    /**
+     *
+     * @return
+     */
     public int getQtdAtualNoArmazem() {
         int total = 0;
         for (Lote l : lotes) {
@@ -39,12 +68,24 @@ public class Estoque {
         return total;
     }
     
+    /**
+     *
+     * @return
+     */
     public int getCapacidadeMaxima() { return capacidadeMaxima; }
 
+    /**
+     *
+     * @param e
+     */
     public void definirEstrategia(EstrategiaReposicao e) {
         this.estrategia = e;
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Lote> executarReposicao() {
         if (estrategia != null) {
             return estrategia.ordenarSaida(this.lotes);

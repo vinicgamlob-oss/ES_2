@@ -3,10 +3,17 @@ import static org.junit.Assert.assertEquals;
 import PGK_1.Funcionario;
 import PGK_1.GerenteFactory;
 
+/**
+ *
+ * @author Vinicius
+ */
 public class TestesFuncionario {
 
     Funcionario f = new GerenteFactory().criarFuncionario();
 
+    /**
+     *
+     */
     public TestesFuncionario() {
         f.setEmail("funcionario@email.com");
         f.setSenha("SenhaCorreta123");

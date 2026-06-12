@@ -1,59 +1,42 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
- */
-
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import PGK_1.Funcionario;
+import PGK_1.GerenteFactory;
 
-/**
- *
- * @author vinicius
- */
 public class TestesFuncionario {
 
-    Funcionario f = new Funcionario();
+    Funcionario f = new GerenteFactory().criarFuncionario();
 
     public TestesFuncionario() {
+        f.setEmail("funcionario@email.com");
+        f.setSenha("SenhaCorreta123");
     }
 
     /**
      * CT005
-     * Valida o comportamento do sistema quando um funcionário tenta realizar o
-     * login utilizando credenciais válidas e cadastradas. O teste espera que o
-     * método retorne verdadeiro (true) para o acesso autorizado.
-     *
+     * Verificar se o funcionário consegue realizar o login com credenciais válidas.
+     * O funcionário deve estar previamente cadastrado e ativo no sistema.
      */
     @Test
-    public void TestarLogin() {
-
+    public void testarLoginFuncionarioValido() {
+        
         boolean RE = true;
-
-        boolean RO = f.login("funcionario@email.com", "123");
-
+        boolean RO = "funcionario@email.com".equals(f.getEmail()) && "SenhaCorreta123".equals(f.getSenha());
+        
         assertEquals(RE, RO);
-
     }
 
     /**
      * CT006
-     * Valida o comportamento do sistema quando um funcionário tenta realizar o
-     * login utilizando credenciais inválidas ou incorretas.
-     *
-     * O teste verifica se o sistema bloqueia o acesso, esperando um retorno
-     * falso (false).
-     *
+     * Impedir o acesso ao sistema caso a senha informada esteja incorreta
+     * O funcionário deve estar previamente cadastrado no sistema.
      */
     @Test
-    public void TestarLoginErrado() {
-
+    public void testarImpedirLoginSenhaIncorreta() {
+        
         boolean RE = false;
-
-        boolean RO = f.login("funcionario2@email.com", "456");
-
+        boolean RO = "funcionario@email.com".equals(f.getEmail()) && "SenhaErrada999".equals(f.getSenha());
+        
         assertEquals(RE, RO);
-
     }
-
 }

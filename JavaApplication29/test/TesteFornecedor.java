@@ -6,7 +6,6 @@
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import PGK_1.Fornecedor;
-import PGK_1.Produto;
 import java.util.ArrayList;
 import java.util.List;
 

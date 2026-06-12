@@ -7,7 +7,7 @@ import java.util.List;
  * @author Vinicius
  */
 public class FIFOStrategy implements EstrategiaReposicao {
-<<<<<<< HEAD
+
     
     /**
      * Ordena a lista de lotes aplicando o algoritmo FIFO (First In, First Out).
@@ -16,13 +16,13 @@ public class FIFOStrategy implements EstrategiaReposicao {
      *
      * @param lotes A lista original de lotes disponíveis no estoque.
      * @return Uma nova lista clonada e ordenada contendo os lotes organizados por ordem de chegada.
-=======
+
 
     /**
      *
      * @param lotes
      * @return
->>>>>>> 19f642692848786f833d73ba2df4e0bed526fafe
+
      */
     @Override
     public List<Lote> ordenarSaida(List<Lote> lotes) {

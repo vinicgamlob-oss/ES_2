@@ -1,139 +1,93 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package PGK_1;
 
 /**
- *
- * @author vinicius
+ * Representa uma entidade física (Pessoa) dentro do ecossistema do software.
+ * Armazena atributos cadastrais básicos e gerencia rotinas rígidas de validação 
+ * de integridade para persistência e atualização de dados pessoais.
+ * * @author vinicius
  */
 public class Pessoa {
     
-    private  String name = "Joao";
-    private  int CPF = 1;
-    private  int NumeroCell = 12;
+    private String name = "Joao";
+    private int CPF = 1;
+    private int NumeroCell = 12;
     private String Email = "Joao@email.com";
     private int DataNasc = 11;
     private String Residencia = " Rua Dom Bosco ";
     
-    /**
-     *
-     * @return
-     */
+    /** @return O nome atual registrado para a pessoa. */
     public String getName() {
         return name;
     }
 
-    /**
-     *
-     * @param name
-     */
+    /** @param name O novo nome a ser estabelecido. */
     public void setName(String name) {
         this.name = name;
     }
 
-    /**
-     *
-     * @return
-     */
+    /** @return O número de CPF simplificado registrado. */
     public int getCPF() {
         return CPF;
     }
 
-    /**
-     *
-     * @param CPF
-     */
+    /** @param CPF O novo número de CPF a ser estabelecido. */
     public void setCPF(int CPF) {
         this.CPF = CPF;
     }
 
-    /**
-     *
-     * @return
-     */
+    /** @return O número de contato telefônico registrado. */
     public int getNumeroCell() {
         return NumeroCell;
     }
 
-    /**
-     *
-     * @param NumeroCell
-     */
+    /** @param NumeroCell O novo número de contato telefônico a ser estabelecido. */
     public void setNumeroCell(int NumeroCell) {
         this.NumeroCell = NumeroCell;
     }
 
-    /**
-     *
-     * @return
-     */
+    /** @return O endereço eletrônico (E-mail) cadastrado. */
     public String getEmail() {
         return Email;
     }
 
-    /**
-     *
-     * @param Email
-     */
+    /** @param Email O novo endereço eletrônico a ser estabelecido. */
     public void setEmail(String Email) {
         this.Email = Email;
     }
 
-    /**
-     *
-     * @return
-     */
+    /** @return O valor numérico que representa a data de nascimento. */
     public int getDataNasc() {
         return DataNasc;
     }
 
-    /**
-     *
-     * @param DataNasc
-     */
+    /** @param DataNasc A nova representação numérica da data de nascimento. */
     public void setDataNasc(int DataNasc) {
         this.DataNasc = DataNasc;
     }
 
-    /**
-     *
-     * @return
-     */
+    /** @return O endereço de residência fixado. */
     public String getResidencia() {
         return Residencia;
     }
 
-    /**
-     *
-     * @param Residencia
-     */
+    /** @param Residencia O novo endereço residencial a ser estabelecido. */
     public void setResidencia(String Residencia) {
         this.Residencia = Residencia;
     }
 
-<<<<<<< HEAD
-    
-  /**
+    /**
      * Valida o número do CPF de acordo com os limites simplificados do sistema.
      * Considera um CPF válido se o valor numérico estiver no intervalo estrito entre 1 e 99.
      *
      * @param CPF O número do CPF que será submetido à análise de consistência.
      * @return true se o CPF estiver dentro do intervalo permitido; false caso contrário.
-=======
-    /**
-     *
-     * @param CPF
-     * @return
->>>>>>> 19f642692848786f833d73ba2df4e0bed526fafe
      */
     public boolean validarCPF(int CPF){
-        if (CPF >  0 && CPF < 100 ){
+        if (CPF > 0 && CPF < 100 ){
             return true;
         }
         else{
-            return false ;
+            return false;
         }
     }
     
@@ -165,7 +119,6 @@ public class Pessoa {
         
         return true;
     }
-<<<<<<< HEAD
   
     /**
      * Modifica e atualiza o cadastro da pessoa após uma bateria de validações de segurança.
@@ -204,52 +157,7 @@ public class Pessoa {
         this.DataNasc = novaDataNasc;
         this.Email = novoEmail;
         this.Residencia = novaResidencia;
-=======
-    
-    /**
-     *
-     * @return
-     */
-    public boolean verificarCadastro() {
-    
-    if (name.isBlank() || Email.isBlank() || Residencia.isBlank()) {
-        return false; 
-    }
-    
-    
-    if (!validarCPF(this.CPF)) { 
-        return false;
-    }
-    
-   
-    if (NumeroCell != 12 ){
-        return false;
-    }
-    
-    
-    if (DataNasc != 11) {
-        return false;
-    }
-    
-
-    
-    return true;
-}
-  
-    /**
-     *
-     * @param novoNome
-     * @param novoCPF
-     * @param novoNumeroCell
-     * @param novoEmail
-     * @param novaDataNasc
-     * @param novaResidencia
-     * @return
-     */
-    public boolean atualizarCadastro(String novoNome, int novoCPF, int novoNumeroCell, String novoEmail, int novaDataNasc, String novaResidencia){
->>>>>>> 19f642692848786f833d73ba2df4e0bed526fafe
       
         return true;
     }
-    
-    }
+}

@@ -1,22 +1,27 @@
+
+
+import PGK_1.Estoque;
+import PGK_1.Lote;
+import PGK_1.SistemaEstoque;
+import PGK_1.Produto; 
 import org.junit.Test;
 import org.junit.Before;
 import static org.junit.Assert.assertEquals;
-import PGK_1.Lote;
-import PGK_1.Produto;
-import PGK_1.SistemaEstoque;
-import PGK_1.Estoque;
 
 /**
- *
+ * Suite de testes unitários para validação do gerenciamento e persistência de lotes.
+ * Avalia os fluxos de cadastros válidos, travas de segurança quantitativa, restrições 
+ * cronológicas e rotinas de auditoria de saldo no armazém.
  * @author Vinicius
  */
 public class TestesLote {
 
-    SistemaEstoque sistema = new SistemaEstoque();
-    Produto produtoBase = new Produto(101, 789123);
+    private SistemaEstoque sistema = new SistemaEstoque();
+    public Produto produtoBase = new Produto(101, 789123);
 
     /**
-     *
+     * Rotina de pré-configuração executada antes de cada caso de teste.
+     * Garante o isolamento dos testes limpando a base de dados em memória do Singleton do estoque.
      */
     @Before
     public void limparArmazem() {
@@ -40,8 +45,8 @@ public class TestesLote {
 
     /**
      * CT020
-     * Garantir que o sistema bloqueie a entrada de lotes sem itens ou com saldo negativo
-     * O usuário está na tela de "Cadastro de Lote
+     * Garantir que o sistema bloqueie a entrada de lotes sem itens ou com saldo negativo.
+     * O usuário está na tela de "Cadastro de Lote".
      */
     @Test
     public void testarBloquearLoteSaldoInvalido() {
@@ -56,7 +61,7 @@ public class TestesLote {
     /**
      * CT021
      * Bloquear o cadastro de lotes que já entrem no sistema com o prazo de validade expirado.
-     * O usuário está na tela de "Cadastro de Lote (Considerando o ano corrente como 2026)
+     * O usuário está na tela de "Cadastro de Lote" (Considerando o ano corrente como 2026).
      */
     @Test
     public void testarBloquearLoteValidadeExpirada() {
@@ -71,7 +76,7 @@ public class TestesLote {
     /**
      * CT022
      * Garantir a coerência cronológica do lote (um produto não pode ser recebido antes de ser fabricado).
-     * O usuário está na tela de "Cadastro de Lote
+     * O usuário está na tela de "Cadastro de Lote".
      */
     @Test
     public void testarCoerenciaCronologicaLote() {
@@ -109,7 +114,7 @@ public class TestesLote {
     /**
      * CT024
      * Verificar o ajuste manual de saldo/quantidade de um lote por motivos de auditoria ou correção.
-     * O lote 501 (com quantidade inicial 100) deve estar previamente cadastrado. O usuário está na tela de 'Edição de Lote
+     * O lote 501 (com quantidade inicial 100) deve estar previamente cadastrado. O usuário está na tela de "Edição de Lote".
      */
     @Test
     public void testarAjusteManualSaldoLote() {

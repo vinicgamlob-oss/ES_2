@@ -1,14 +1,13 @@
 package PGK_1;
 
 /**
- *
- * @author Vinicius
+ * Subclasse que implementa a especialização do relatório para auditoria de vencimentos.
+ * Executa o passo específico do Template Method para varrer o estoque e listar os lotes vencidos.
+ * * @author Vinicius
  */
 public class RelatorioValidade extends Relatorio {
-<<<<<<< HEAD
   
-    
-   /**
+    /**
      * Processa os dados de estoque coletados e formata o corpo do relatório de validades.
      * Varre todos os lotes carregados filtrando especificamente aqueles cujo ano de validade 
      * seja inferior a 2026, anexando um alerta visual de "VENCIDO" ao texto formatado 
@@ -16,12 +15,6 @@ public class RelatorioValidade extends Relatorio {
      *
      * @return Uma String formatada contendo o cabeçalho e a listagem de auditoria cronológica 
      * dos lotes vencidos presentes no sistema.
-=======
-
-    /**
-     *
-     * @return
->>>>>>> 19f642692848786f833d73ba2df4e0bed526fafe
      */
     @Override
     protected String processarEFormatar() {

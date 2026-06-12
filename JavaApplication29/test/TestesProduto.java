@@ -6,17 +6,19 @@ import PGK_1.SistemaEstoque;
 import PGK_1.Estoque;
 
 /**
- *
+ * Suite de testes unitários para validação do catálogo e consistência de dados de produtos.
+ * Avalia fluxos de inserção, buscas internas por ID e travas contra duplicidade de códigos de barras.
  * @author Vinicius
  */
 public class TestesProduto {
 
-    SistemaEstoque sistema = new SistemaEstoque();
-    Produto p = new Produto(101, 789111);
-    Produto p2 = new Produto(102, 789222);
+    private SistemaEstoque sistema = new SistemaEstoque();
+    private Produto p = new Produto(101, 789111);
+    private Produto p2 = new Produto(102, 789222);
 
     /**
-     *
+     * Rotina de pré-configuração executada antes de cada caso de teste.
+     * Garante o isolamento limpando o banco de dados em memória do catálogo de produtos.
      */
     @Before
     public void limparCatalogo() {
@@ -44,24 +46,25 @@ public class TestesProduto {
      * Impedir o cadastro de um produto caso o código de barras já exista no sistema. 
      * Já existir um produto cadastrado com o código de barras. O usuário está na tela de cadastro.
      */
- @Test
-public void testarImpedirCadastroCodigoDuplicado() {
-    // Forçamos o primeiro parâmetro (Código) a ser IDÊNTICO (ex: 101)
-    Produto produtoExistente = new Produto(101, 789123);
-    sistema.cadastrarProduto(produtoExistente);
+    @Test
+    public void testarImpedirCadastroCodigoDuplicado() {
+        // Primeiro produto cadastrado com código de barras 789123
+        Produto produtoExistente = new Produto(101, 789123);
+        sistema.cadastrarProduto(produtoExistente);
 
-    // Tentando cadastrar outro produto com o MESMO código (101)
-    Produto produtoDuplicado = new Produto(101, 456789); 
+        // Tentando cadastrar outro produto com o MESMO código de barras (789123)
+        // O código interno (102) pode até ser diferente, mas o de barras vai forçar o bloqueio
+        Produto produtoDuplicado = new Produto(102, 789123); 
 
-    boolean RE = false;
-    boolean RO = sistema.cadastrarProduto(produtoDuplicado);
+        boolean RE = false;
+        boolean RO = sistema.cadastrarProduto(produtoDuplicado);
 
-    assertEquals(RE, RO);
-}
+        assertEquals(RE, RO);
+    }
 
     /**
      * CT010 
-     * Verificar a consulta de um produto através do seu código unico.
+     * Verificar a consulta de um produto através do seu código único.
      */
     @Test
     public void validarBusca() {
@@ -113,11 +116,15 @@ public void testarImpedirCadastroCodigoDuplicado() {
         sistema.cadastrarProduto(p2);
         
         boolean RE = false;
-        boolean RO = false;
+        boolean RO = true; // Iniciamos assumindo que a operação é válida até que a duplicidade seja provada
+        
+        // Simulação da regra de negócio: Se tentar atualizar o produto 'p' (101) com o código de barras do 'p2' (789222)
+        int sugeridoCoddigoBarra = 789222;
+        int idAlvo = 101;
         
         for (Produto prod : Estoque.getInstance().getProdutos()) {
-            if (prod.getCoddigoBarra() == 789222 && prod.getCodigo() != 101) {
-                RO = false;
+            if (prod.getCoddigoBarra() == sugeridoCoddigoBarra && prod.getCodigo() != idAlvo) {
+                RO = false; // Bloqueia (duplicidade detectada em outro ID)
                 break;
             }
         }

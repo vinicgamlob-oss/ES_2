@@ -1,3 +1,4 @@
+
 import org.junit.Test;
 import org.junit.Before;
 import static org.junit.Assert.assertEquals;
@@ -9,7 +10,8 @@ import PGK_1.Estoque;
 import java.util.List;
 
 /**
- *
+ * Suite de testes unitários para validação dos módulos de emissão de relatórios,
+ * auditoria de perdas físicas e travas logísticas de distribuição.
  * @author Vinicius
  */
 public class TestesRelatoriosELogistica {
@@ -18,7 +20,8 @@ public class TestesRelatoriosELogistica {
     Produto produtoBase = new Produto(10, 100);
 
     /**
-     *
+     * Rotina de pré-configuração executada antes de cada caso de teste.
+     * Garante o isolamento limpando o banco de dados em memória do estoque.
      */
     @Before
     public void limparLotes() {
@@ -63,44 +66,28 @@ public class TestesRelatoriosELogistica {
         assertEquals(RE, RO);
     }
 
-  /**
+    /**
      * CT027
      * Garantir que o sistema notifique o usuário adequadamente se ele tentar gerar um relatório de perdas quando não houver nenhuma perda registrada.
      * O sistema não possui nenhum registro de produto vencido ou descartado. O usuário está na tela de "Relatórios"
      */
     @Test
-<<<<<<< HEAD
     public void testarNotificarRelatorioPerdasVazio() {
         Lote loteValido = new Lote(501, produtoBase, 2030, 100, 2026, 2025);
         sistema.registrarLote(loteValido);
         
         String textoRelatorio = sistema.gerarRelatorioPerdas();
         
-        // CORREÇÃO: O resultado esperado é TRUE, pois o relatório DEVE conter o texto de zero perdas
         boolean RE = true; 
         boolean RO = textoRelatorio.contains("Total de itens perdidos: 0.0");
         
         assertEquals(RE, RO);
     }
-=======
-public void testarNotificarRelatorioPerdasVazio() {
-    Lote loteValido = new Lote(501, produtoBase, 2030, 100, 2026, 2025);
-    sistema.registrarLote(loteValido);
-    
-    String textoRelatorio = sistema.gerarRelatorioPerdas();
-    
-    // Altere aqui de false para true:
-    boolean RE = true; 
-    boolean RO = textoRelatorio.contains("Total de itens perdidos: 0.0");
-    
-    assertEquals(RE, RO);
-} 
 
->>>>>>> 19f642692848786f833d73ba2df4e0bed526fafe
     /**
      * CT028
      * Verificar a vinculação de uma rota logística para o transporte dos lotes de um fornecedor.
-     * O fornecedor com a Empresa "Distribuidora Alimentos deve estar cadastrado. O usuário está na tela de "Logística/Rotas".
+     * O fornecedor com a Empresa "Distribuidora Alimentos" deve estar cadastrado. O usuário está na tela de "Logística/Rotas".
      */
     @Test
     public void testarVincularRotaLogisticaComFornecedor() {

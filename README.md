@@ -56,23 +56,6 @@ O sistema foi refatorado para garantir manutenibilidade, extensibilidade e robus
 
 ---
 
-## 🚀 Como Executar o Projeto
-
-*(Instruções de exemplo - ajuste conforme a linguagem real do código)*
-
-1. Certifique-se de ter o ambiente correspondente instalado (JDK / .NET SDK).
-2. Clone o repositório:
-   ```bash
-   git clone https://github.com
-   ```
-3. Navegue até o diretório e compile:
-   ```bash
-   # Exemplo para Java
-   javac Main.java
-   java Main
-   ```
-
----
 **Curso:** Engenharia da Computação  
 **Disciplina:** Engenharia de Software  
 **Instituição:** UNISAL  

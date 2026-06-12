@@ -12,26 +12,31 @@ public class SistemaEstoque {
     }
 
     public boolean cadastrarProduto(Produto novo) {
-        for (Produto p : estoque.getProdutos()) {
-            if (p.getCodigo() == novo.getCodigo()) return false;
-        }
-        estoque.getProdutos().add(novo);
-        return true;
-    }
-
-    public boolean registrarLote(Lote novo) {
-        if (novo.getQtd_de_Produtos() <= 0) return false;
-        if (novo.getValidade() < 2026) return false;
-        if (novo.getData_Recebida() < novo.getData_Fabricacao()) return false;
+    for (Produto p : estoque.getProdutos()) {
         
-       
-        if ((estoque.getQtdAtualNoArmazem() + novo.getQtd_de_Produtos()) > estoque.getCapacidadeMaxima()) {
+        if (p.getCoddigoBarra() == novo.getCoddigoBarra()) {
             return false; 
         }
-
-        estoque.adicionarLote(novo);
-        return true;
     }
+    estoque.getProdutos().add(novo);
+    return true;
+}
+
+   public boolean registrarLote(Lote novo) {
+    if (novo.getQtd_de_Produtos() <= 0) return false;
+    
+    
+    if (novo.getValidade() <= 2026) return false; 
+    
+    if (novo.getData_Recebida() < novo.getData_Fabricacao()) return false;
+    
+    if ((estoque.getQtdAtualNoArmazem() + novo.getQtd_de_Produtos()) > estoque.getCapacidadeMaxima()) {
+        return false; 
+    }
+
+    estoque.adicionarLote(novo);
+    return true;
+}
 
     public List<Lote> executarFEFO() {
         estoque.definirEstrategia(new FEFOStrategy());

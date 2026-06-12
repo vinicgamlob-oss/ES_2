@@ -62,17 +62,18 @@ public class TestesRelatoriosELogistica {
      * O sistema não possui nenhum registro de produto vencido ou descartado. O usuário está na tela de "Relatórios"
      */
     @Test
-    public void testarNotificarRelatorioPerdasVazio() {
-        Lote loteValido = new Lote(501, produtoBase, 2030, 100, 2026, 2025);
-        sistema.registrarLote(loteValido);
-        
-        String textoRelatorio = sistema.gerarRelatorioPerdas();
-        
-        boolean RE = false;
-        boolean RO = textoRelatorio.contains("Total de itens perdidos: 0.0");
-        
-        assertEquals(RE, RO);
-    }
+public void testarNotificarRelatorioPerdasVazio() {
+    Lote loteValido = new Lote(501, produtoBase, 2030, 100, 2026, 2025);
+    sistema.registrarLote(loteValido);
+    
+    String textoRelatorio = sistema.gerarRelatorioPerdas();
+    
+    // Altere aqui de false para true:
+    boolean RE = true; 
+    boolean RO = textoRelatorio.contains("Total de itens perdidos: 0.0");
+    
+    assertEquals(RE, RO);
+} 
 
     /**
      * CT028

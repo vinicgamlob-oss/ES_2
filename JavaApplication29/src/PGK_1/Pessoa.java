@@ -17,8 +17,6 @@ public class Pessoa {
     private int DataNasc = 11;
     private String Residencia = " Rua Dom Bosco ";
     
-    
-    
    
     public String getName() {
         return name;

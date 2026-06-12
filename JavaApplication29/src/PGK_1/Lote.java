@@ -30,12 +30,16 @@ public class Lote {
         this.Data_Fabricacao = Data_Fabricacao;
     }
 
+<<<<<<< HEAD
+ 
+=======
     // Mantenha APENAS os Getters e Setters abaixo...
 
     /**
      *
      * @return
      */
+>>>>>>> 19f642692848786f833d73ba2df4e0bed526fafe
     public int getCodigo() { return Codigo; }
 
     /**

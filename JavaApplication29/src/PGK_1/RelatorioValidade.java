@@ -5,10 +5,23 @@ package PGK_1;
  * @author Vinicius
  */
 public class RelatorioValidade extends Relatorio {
+<<<<<<< HEAD
+  
+    
+   /**
+     * Processa os dados de estoque coletados e formata o corpo do relatório de validades.
+     * Varre todos os lotes carregados filtrando especificamente aqueles cujo ano de validade 
+     * seja inferior a 2026, anexando um alerta visual de "VENCIDO" ao texto formatado 
+     * para cada ocorrência identificada.
+     *
+     * @return Uma String formatada contendo o cabeçalho e a listagem de auditoria cronológica 
+     * dos lotes vencidos presentes no sistema.
+=======
 
     /**
      *
      * @return
+>>>>>>> 19f642692848786f833d73ba2df4e0bed526fafe
      */
     @Override
     protected String processarEFormatar() {

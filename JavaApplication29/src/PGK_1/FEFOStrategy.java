@@ -7,11 +7,24 @@ import java.util.List;
  * @author Vinicius
  */
 public class FEFOStrategy implements EstrategiaReposicao {
+<<<<<<< HEAD
+    
+    
+    
+    /**
+     * Ordena a lista de lotes aplicando o algoritmo FEFO (First Expired, First Out).
+     * Organiza os lotes em ordem crescente com base no ano de validade, garantindo que 
+     * os produtos com vencimento mais próximo sejam priorizados para a saída.
+     *
+     * @param lotes A lista original de lotes disponíveis no estoque.
+     * @return Uma nova lista clonada e ordenada contendo os lotes prontos para expedição.
+=======
 
     /**
      *
      * @param lotes
      * @return
+>>>>>>> 19f642692848786f833d73ba2df4e0bed526fafe
      */
     @Override
     public List<Lote> ordenarSaida(List<Lote> lotes) {

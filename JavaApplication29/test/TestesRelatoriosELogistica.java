@@ -63,12 +63,26 @@ public class TestesRelatoriosELogistica {
         assertEquals(RE, RO);
     }
 
-    /**
+  /**
      * CT027
      * Garantir que o sistema notifique o usuário adequadamente se ele tentar gerar um relatório de perdas quando não houver nenhuma perda registrada.
      * O sistema não possui nenhum registro de produto vencido ou descartado. O usuário está na tela de "Relatórios"
      */
     @Test
+<<<<<<< HEAD
+    public void testarNotificarRelatorioPerdasVazio() {
+        Lote loteValido = new Lote(501, produtoBase, 2030, 100, 2026, 2025);
+        sistema.registrarLote(loteValido);
+        
+        String textoRelatorio = sistema.gerarRelatorioPerdas();
+        
+        // CORREÇÃO: O resultado esperado é TRUE, pois o relatório DEVE conter o texto de zero perdas
+        boolean RE = true; 
+        boolean RO = textoRelatorio.contains("Total de itens perdidos: 0.0");
+        
+        assertEquals(RE, RO);
+    }
+=======
 public void testarNotificarRelatorioPerdasVazio() {
     Lote loteValido = new Lote(501, produtoBase, 2030, 100, 2026, 2025);
     sistema.registrarLote(loteValido);
@@ -82,6 +96,7 @@ public void testarNotificarRelatorioPerdasVazio() {
     assertEquals(RE, RO);
 } 
 
+>>>>>>> 19f642692848786f833d73ba2df4e0bed526fafe
     /**
      * CT028
      * Verificar a vinculação de uma rota logística para o transporte dos lotes de um fornecedor.

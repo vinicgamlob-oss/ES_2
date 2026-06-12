@@ -6,11 +6,18 @@ import PGK_1.Produto;
 import PGK_1.SistemaEstoque;
 import PGK_1.Estoque;
 
+/**
+ *
+ * @author Vinicius
+ */
 public class TestesLote {
 
     SistemaEstoque sistema = new SistemaEstoque();
     Produto produtoBase = new Produto(101, 789123);
 
+    /**
+     *
+     */
     @Before
     public void limparArmazem() {
         Estoque.getInstance().getLotes().clear();

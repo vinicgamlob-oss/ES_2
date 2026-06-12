@@ -11,15 +11,96 @@ import java.util.List;
  */
 public class Fornecedor {
 
+<<<<<<< HEAD
+=======
+    /**
+     *
+     * @param Cnpj
+     * @param nomef
+     */
+    public Fornecedor(int Cnpj, String nomef) {
+        this.Cnpj = Cnpj;
+        this.nomef = nomef;
+    }
+
+>>>>>>> 19f642692848786f833d73ba2df4e0bed526fafe
     private int Cnpj;
     private String nomef;
     private String empresa;
     private String endereco;
+<<<<<<< HEAD
+=======
+
+    /**
+     *
+     * @return
+     */
+    public String getEmpresa() {
+        return empresa;
+    }
+
+    /**
+     *
+     * @param empresa
+     */
+    public void setEmpresa(String empresa) {
+        this.empresa = empresa;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String getEndereco() {
+        return endereco;
+    }
+
+    /**
+     *
+     * @param endereco
+     */
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public int getCnpj() {
+        return Cnpj;
+    }
+
+    /**
+     *
+     * @param Cnpj
+     */
+    public void setCnpj(int Cnpj) {
+        this.Cnpj = Cnpj;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String getNomef() {
+        return nomef;
+    }
+
+    /**
+     *
+     * @param nomef
+     */
+    public void setNomef(String nomef) {
+        this.nomef = nomef;
+    }
+>>>>>>> 19f642692848786f833d73ba2df4e0bed526fafe
     
     /** Lista interna para gerenciamento local de fornecedores (opcional). */
     List<Fornecedor> lf = new ArrayList<>();
 
     /**
+<<<<<<< HEAD
      * Construtor principal para inicialização de um fornecedor com dados essenciais.
      *
      * @param Cnpj O número de identificação jurídica (CNPJ) do fornecedor.
@@ -36,12 +117,28 @@ public class Fornecedor {
      * @param par Código ou parâmetro numérico de identificação.
      * @param fornecedor_A Razão social ou identificador do fornecedor.
      * @param nome Nome do responsável ou contato direto.
+=======
+     *
+     * @param par
+     * @param fornecedor_A
+     * @param nome
+>>>>>>> 19f642692848786f833d73ba2df4e0bed526fafe
      */
     public Fornecedor(int par, String fornecedor_A, String nome) {
     }
 
+<<<<<<< HEAD
     /** @return O nome da empresa ou razão social. */
     public String getEmpresa() { return empresa; }
+=======
+    /**
+     *
+     * @param lista
+     * @param novo
+     * @return
+     */
+    public static boolean cadastrarFornecedor(List<Fornecedor> lista, Fornecedor novo) {
+>>>>>>> 19f642692848786f833d73ba2df4e0bed526fafe
 
     /** @param empresa O nome da empresa ou razão social a ser definido. */
     public void setEmpresa(String empresa) { this.empresa = empresa; }
@@ -82,11 +179,18 @@ public class Fornecedor {
     }
     
     /**
+<<<<<<< HEAD
      * Localiza a existência de um fornecedor na base de dados através do CNPJ de busca.
      *
      * @param lista A lista de fornecedores onde a busca será realizada.
      * @param cnpjBuscado O número do CNPJ que deseja encontrar.
      * @return true se o fornecedor for localizado na lista; false caso não exista.
+=======
+     *
+     * @param lista
+     * @param cnpjBuscado
+     * @return
+>>>>>>> 19f642692848786f833d73ba2df4e0bed526fafe
      */
     public static boolean buscarFornecedor(List<Fornecedor> lista, int cnpjBuscado) {
         for (Fornecedor f : lista) {
@@ -97,6 +201,7 @@ public class Fornecedor {
         return false; 
     }
     
+<<<<<<< HEAD
     /**
      * Modifica os dados cadastrais de um fornecedor já existente.
      * Valida primeiro se o novo CNPJ sugerido já não está sendo utilizado por outro 
@@ -114,6 +219,24 @@ public class Fornecedor {
             if (f.getCnpj() == novoCnpj && f.getCnpj() != cnpjAlvo) {
                 return false; 
             }
+=======
+    return false; 
+}
+    
+    /**
+     *
+     * @param lista
+     * @param cnpjAlvo
+     * @param novoNomef
+     * @param novoCnpj
+     * @return
+     */
+    public static boolean alterarFornecedor(List<Fornecedor> lista, int cnpjAlvo, String novoNomef, int novoCnpj) {
+    
+    for (Fornecedor f : lista) {
+        if (f.getCnpj() == novoCnpj && f.getCnpj() != cnpjAlvo) {
+            return false; 
+>>>>>>> 19f642692848786f833d73ba2df4e0bed526fafe
         }
        
         for (Fornecedor f : lista) {

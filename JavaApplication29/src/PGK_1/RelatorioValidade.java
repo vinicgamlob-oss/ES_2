@@ -1,6 +1,11 @@
 package PGK_1;
 
+/**
+ *
+ * @author Vinicius
+ */
 public class RelatorioValidade extends Relatorio {
+<<<<<<< HEAD
   
     
    /**
@@ -11,6 +16,12 @@ public class RelatorioValidade extends Relatorio {
      *
      * @return Uma String formatada contendo o cabeçalho e a listagem de auditoria cronológica 
      * dos lotes vencidos presentes no sistema.
+=======
+
+    /**
+     *
+     * @return
+>>>>>>> 19f642692848786f833d73ba2df4e0bed526fafe
      */
     @Override
     protected String processarEFormatar() {

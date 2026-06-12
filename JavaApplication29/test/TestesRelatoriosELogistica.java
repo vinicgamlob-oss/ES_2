@@ -8,11 +8,18 @@ import PGK_1.SistemaEstoque;
 import PGK_1.Estoque;
 import java.util.List;
 
+/**
+ *
+ * @author Vinicius
+ */
 public class TestesRelatoriosELogistica {
 
     SistemaEstoque sistema = new SistemaEstoque();
     Produto produtoBase = new Produto(10, 100);
 
+    /**
+     *
+     */
     @Before
     public void limparLotes() {
         Estoque.getInstance().getLotes().clear();
@@ -62,6 +69,7 @@ public class TestesRelatoriosELogistica {
      * O sistema não possui nenhum registro de produto vencido ou descartado. O usuário está na tela de "Relatórios"
      */
     @Test
+<<<<<<< HEAD
     public void testarNotificarRelatorioPerdasVazio() {
         Lote loteValido = new Lote(501, produtoBase, 2030, 100, 2026, 2025);
         sistema.registrarLote(loteValido);
@@ -74,6 +82,21 @@ public class TestesRelatoriosELogistica {
         
         assertEquals(RE, RO);
     }
+=======
+public void testarNotificarRelatorioPerdasVazio() {
+    Lote loteValido = new Lote(501, produtoBase, 2030, 100, 2026, 2025);
+    sistema.registrarLote(loteValido);
+    
+    String textoRelatorio = sistema.gerarRelatorioPerdas();
+    
+    // Altere aqui de false para true:
+    boolean RE = true; 
+    boolean RO = textoRelatorio.contains("Total de itens perdidos: 0.0");
+    
+    assertEquals(RE, RO);
+} 
+
+>>>>>>> 19f642692848786f833d73ba2df4e0bed526fafe
     /**
      * CT028
      * Verificar a vinculação de uma rota logística para o transporte dos lotes de um fornecedor.

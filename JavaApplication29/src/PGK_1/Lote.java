@@ -17,7 +17,7 @@ public class Lote {
         this.Data_Fabricacao = Data_Fabricacao;
     }
 
-    // Mantenha APENAS os Getters e Setters abaixo...
+ 
     public int getCodigo() { return Codigo; }
     public void setCodigo(int Codigo) { this.Codigo = Codigo; }
     public Produto getProduto() { return Produto; }

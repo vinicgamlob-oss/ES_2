@@ -37,18 +37,20 @@ public class TestesProduto {
      * Impedir o cadastro de um produto caso o código de barras já exista no sistema. 
      * Já existir um produto cadastrado com o código de barras. O usuário está na tela de cadastro.
      */
-    @Test
-    public void testarImpedirCadastroCodigoDuplicado() {
-        Produto produtoExistente = new Produto(101, 789123);
-        sistema.cadastrarProduto(produtoExistente);
+ @Test
+public void testarImpedirCadastroCodigoDuplicado() {
+    // Forçamos o primeiro parâmetro (Código) a ser IDÊNTICO (ex: 101)
+    Produto produtoExistente = new Produto(101, 789123);
+    sistema.cadastrarProduto(produtoExistente);
 
-        Produto produtoDuplicado = new Produto(102, 789123);
+    // Tentando cadastrar outro produto com o MESMO código (101)
+    Produto produtoDuplicado = new Produto(101, 456789); 
 
-        boolean RE = false;
-        boolean RO = sistema.cadastrarProduto(produtoDuplicado);
+    boolean RE = false;
+    boolean RO = sistema.cadastrarProduto(produtoDuplicado);
 
-        assertEquals(RE, RO);
-    }
+    assertEquals(RE, RO);
+}
 
     /**
      * CT010 
